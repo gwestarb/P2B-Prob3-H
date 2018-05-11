@@ -10,6 +10,7 @@ public class Pedido {
     private Date data;
     private String endereco;
     private ArrayList<ItemPedido> itens;
+    private Double pesoTotal;
 
     public Pedido() {
     }
@@ -56,6 +57,12 @@ public class Pedido {
             valorTotal += (ip.getValorItem());
         }
         return valorTotal;
+    }
+    public void calculaPesoTotal(){
+        pesoTotal = 0.0;
+        for (ItemPedido iten : itens) {
+            pesoTotal += (iten.getQuantidade() * iten.getProduto().getPeso());
+        }
     }
 
 }

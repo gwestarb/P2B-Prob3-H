@@ -5,6 +5,7 @@
  */
 package Entregas;
 
+import Exception.TipoEntregaInvalido;
 import Interfaces.TipoEntregaInterface;
 
 /**
@@ -15,7 +16,20 @@ public class PAC implements TipoEntregaInterface{
 
     @Override
     public Double calculaPrecoEntrega(double peso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(peso <= 1000 ){
+            return 10.00;
+        }
+        if(peso > 1000 && peso <= 2000){
+            return 15.00;
+        }
+        if(peso > 2000 && peso <= 3000){
+            return 20.00;
+        }
+        if(peso > 3000 && peso <=5000){
+            return 30.00;
+        }
+        throw new TipoEntregaInvalido();
+        
     }
     
 }
