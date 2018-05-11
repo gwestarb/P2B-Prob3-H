@@ -1,4 +1,4 @@
-package problema3;
+package ClassesProfessor;
 
 class ItemPedido {
 
