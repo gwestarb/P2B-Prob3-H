@@ -24,12 +24,11 @@ public class Sedex implements TipoEntregaInterface{
         if(peso > 750 && peso <=1200){
             return 30.00;
         }
-//        double valor = 45.00;
-//        for(double i = 2000 ; i < peso; ){
-//            valor +=1.50;
-//            i+=100;
-//        }
-//        return valor;
-     return 0.0;
+        double valor = 45.00;
+        double valorAuxiliar = Math.ceil((peso-2000.00)/100.00);
+        for(double i = 0.0 ; i < valorAuxiliar; i++ ){
+            valor += 1.50;
+        }
+        return valor;
     }
 }

@@ -15,7 +15,7 @@ public class RetiradaLocal implements TipoEntregaInterface{
 
     @Override
     public Double calculaPrecoEntrega(double peso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0.0;
     }
     
 }

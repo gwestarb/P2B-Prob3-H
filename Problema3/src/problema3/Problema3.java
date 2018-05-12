@@ -5,6 +5,9 @@
  */
 package problema3;
 
+import Entregas.Sedex;
+import Interfaces.TipoEntregaInterface;
+
 /**
  *
  * @author Gwestarb
@@ -15,7 +18,9 @@ public class Problema3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        TipoEntregaInterface sedex = new Sedex();
+        
+        System.out.println(sedex.calculaPrecoEntrega(2230));
     }
     
 }
