@@ -1,51 +1,39 @@
 package ClassesProfessor;
 
-import Enum.TipoEntrega;
 import Interfaces.TipoEntregaInterface;
+import Strategy.Context;
 import java.util.ArrayList;
 import java.util.Date;
 
-public final class Pedido {
-    private static final Pedido Instancia = new  Pedido();
+public class Pedido {
     private int numero;
     private String nomeCliente;
     private Date data;
     private String endereco;
     private ArrayList<ItemPedido> itens;
-    private Double pesoTotal;
-    private TipoEntrega tipoEntrega;
-    private Double ValorTotal;
+    private TipoEntregaInterface tipoEntrega;
 
-    public Double getValorTotal() {
-        return ValorTotal;
-    }
-
-    public void setValorTotal(Double ValorTotal) {
-        this.ValorTotal = ValorTotal;
-    }
-    
-    
-    private Pedido() {
+    public Pedido() {
         this.itens = new ArrayList<>();
     }
 
-    public TipoEntrega getTipoEntrega() {
+    public TipoEntregaInterface getTipoEntrega() {
         return tipoEntrega;
     }
 
-    public void setTipoEntrega(TipoEntrega tipoEntrega) {
+    public void setTipoEntrega(TipoEntregaInterface tipoEntrega) {
         this.tipoEntrega = tipoEntrega;
     }
 
-    public Double getPesoTotal() {
-        return pesoTotal;
+    
+    public double getValorEntrega(){
+        Context context = new Context(tipoEntrega);
+        return context.executeTipoEntregaStrategy(calculaPesoTotal());
+    }
+    public double getValorTotal(){
+        return getValorEntrega() + getValorPedido();
     }
     
-    
-    public static Pedido getInstancia(){
-        return Instancia;
-    }
-
     public int getNumero() {
         return numero;
     }
@@ -89,11 +77,12 @@ public final class Pedido {
         }
         return valorTotal;
     }
-    public void calculaPesoTotal(){
-        pesoTotal = 0.0;
+    public double calculaPesoTotal(){
+        double pesoTotal = 0.0;
         for (ItemPedido iten : itens) {
             pesoTotal += (iten.getQuantidade() * iten.getProduto().getPeso());
         }
+        return pesoTotal;
     }
     
 
