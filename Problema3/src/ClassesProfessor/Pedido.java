@@ -1,5 +1,6 @@
 package ClassesProfessor;
 
+import Enum.TipoEntrega;
 import Interfaces.TipoEntregaInterface;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +13,7 @@ public final class Pedido {
     private String endereco;
     private ArrayList<ItemPedido> itens;
     private Double pesoTotal;
-    private TipoEntregaInterface tipoEntrega;
+    private TipoEntrega tipoEntrega;
     private Double ValorTotal;
 
     public Double getValorTotal() {
@@ -28,11 +29,11 @@ public final class Pedido {
         this.itens = new ArrayList<>();
     }
 
-    public TipoEntregaInterface getTipoEntrega() {
+    public TipoEntrega getTipoEntrega() {
         return tipoEntrega;
     }
 
-    public void setTipoEntrega(TipoEntregaInterface tipoEntrega) {
+    public void setTipoEntrega(TipoEntrega tipoEntrega) {
         this.tipoEntrega = tipoEntrega;
     }
 

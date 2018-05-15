@@ -10,6 +10,7 @@ import ClassesProfessor.Pedido;
 import ClassesProfessor.Produto;
 import Entregas.PAC;
 import Entregas.Sedex;
+import Enum.TipoEntrega;
 import Facade.CalculaPrecoPedidoFacade;
 import Interfaces.TipoEntregaInterface;
 
@@ -27,15 +28,13 @@ public class Problema3 {
         Pedido p = Pedido.getInstancia();
         Produto pr = new Produto("BANANA", 10, 20);
         p.incluirItem(pr, 100);
-        TipoEntregaInterface PAC = new PAC();
-        p.setTipoEntrega(PAC);
+        p.setTipoEntrega(TipoEntrega.PAC);
         CalculaPrecoPedidoFacade facade = new CalculaPrecoPedidoFacade();
         facade.Calcular(p);
         System.out.println(p.getValorTotal());
         
         
-        TipoEntregaInterface Sedex = new Sedex();
-        p.setTipoEntrega(Sedex);
+        p.setTipoEntrega(TipoEntrega.SEDEX);
         facade.Calcular(p);
         System.out.println(p.getValorTotal());
       

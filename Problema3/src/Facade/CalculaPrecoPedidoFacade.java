@@ -6,14 +6,11 @@ import Interfaces.TipoEntregaInterface;
 
 
 public class CalculaPrecoPedidoFacade {
-
-    public CalculaPrecoPedidoFacade() {
-    }
     
     public void Calcular(Pedido pedido){
-        TipoEntregaInterface tipoEntrega = pedido.getTipoEntrega();
+        TipoEntregaInterface entregaFacade = new EntregaFacade().getTipoEntrega(pedido.getTipoEntrega());
         pedido.calculaPesoTotal();
-        pedido.setValorTotal(pedido.getValorPedido() + tipoEntrega.calculaPrecoEntrega(pedido.getPesoTotal()));
+        pedido.setValorTotal(pedido.getValorPedido() + entregaFacade.calculaPrecoEntrega(pedido.getPesoTotal()));
     }
     
     
