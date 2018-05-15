@@ -1,18 +1,48 @@
 package ClassesProfessor;
 
+import Interfaces.TipoEntregaInterface;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Pedido {
-
+public final class Pedido {
+    private static final Pedido Instancia = new  Pedido();
     private int numero;
     private String nomeCliente;
     private Date data;
     private String endereco;
     private ArrayList<ItemPedido> itens;
     private Double pesoTotal;
+    private TipoEntregaInterface tipoEntrega;
+    private Double ValorTotal;
 
-    public Pedido() {
+    public Double getValorTotal() {
+        return ValorTotal;
+    }
+
+    public void setValorTotal(Double ValorTotal) {
+        this.ValorTotal = ValorTotal;
+    }
+    
+    
+    private Pedido() {
+        this.itens = new ArrayList<>();
+    }
+
+    public TipoEntregaInterface getTipoEntrega() {
+        return tipoEntrega;
+    }
+
+    public void setTipoEntrega(TipoEntregaInterface tipoEntrega) {
+        this.tipoEntrega = tipoEntrega;
+    }
+
+    public Double getPesoTotal() {
+        return pesoTotal;
+    }
+    
+    
+    public static Pedido getInstancia(){
+        return Instancia;
     }
 
     public int getNumero() {
@@ -64,5 +94,6 @@ public class Pedido {
             pesoTotal += (iten.getQuantidade() * iten.getProduto().getPeso());
         }
     }
+    
 
 }
