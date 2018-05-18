@@ -1,0 +1,13 @@
+Strategy:
+Context: é a classe "Context"
+Strategy: é a nossa interface "TipoEntregaInterface"
+ConcreteStrategy: são nossas classes: "Motoboy","PAC","Sedex","RetiradaLocal"
+
+Singleton:
+São nossas classes "Motoboy","PAC","Sedex","RetiradaLocal".
+
+Factory:
+
+Creator: é a nossa classe "EntregaFactory"
+ConcreteProduct: São nossas classes "Motoboy","PAC","Sedex","RetiradaLocal".
+Product: "TipoEntregaInterface"
