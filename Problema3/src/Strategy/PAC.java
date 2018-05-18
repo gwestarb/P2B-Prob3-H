@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entregas;
+package Strategy;
 
+import ClassesProfessor.Pedido;
 import Exception.TipoEntregaInvalido;
 import Interfaces.TipoEntregaInterface;
 
@@ -14,8 +15,24 @@ import Interfaces.TipoEntregaInterface;
  */
 public class PAC implements TipoEntregaInterface{
 
+    private static PAC instance;
+    
+    private PAC(){
+    }
+    
+    public static PAC getInstance(){
+        if (instance == null) {
+            instance = new PAC();
+        }
+        
+        return instance;
+    }
+
     @Override
-    public Double calculaPrecoEntrega(double peso) {
+    public Double calculaPrecoEntrega(Pedido pedido) {
+        
+        double peso = pedido.calculaPesoTotal();
+        
         if(peso <= 1000 ){
             return 10.00;
         }
@@ -29,7 +46,6 @@ public class PAC implements TipoEntregaInterface{
             return 30.00;
         }
         throw new TipoEntregaInvalido();
-        
     }
     
 }

@@ -13,6 +13,14 @@ public class Pedido {
     private ArrayList<ItemPedido> itens;
     private TipoEntregaInterface tipoEntrega;
 
+    public ArrayList<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public int getQuantidadeItens(){
+        return itens.size();
+    }
+    
     public Pedido() {
         this.itens = new ArrayList<>();
     }
@@ -28,7 +36,7 @@ public class Pedido {
     
     public double getValorEntrega(){
         Context context = new Context(tipoEntrega);
-        return context.executeTipoEntregaStrategy(calculaPesoTotal());
+        return context.executeTipoEntregaStrategy(this);
     }
     public double getValorTotal(){
         return getValorEntrega() + getValorPedido();
@@ -77,6 +85,7 @@ public class Pedido {
         }
         return valorTotal;
     }
+    
     public double calculaPesoTotal(){
         double pesoTotal = 0.0;
         for (ItemPedido iten : itens) {

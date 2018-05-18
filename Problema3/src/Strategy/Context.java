@@ -1,5 +1,6 @@
 package Strategy;
 
+import ClassesProfessor.Pedido;
 import Interfaces.TipoEntregaInterface;
 
 public class Context {
@@ -10,8 +11,8 @@ public class Context {
         this.tipoEntrega = tipoEntrega;
     }
     
-    public double executeTipoEntregaStrategy(double peso){
-        return tipoEntrega.calculaPrecoEntrega(peso);
+    public double executeTipoEntregaStrategy(Pedido pedido){
+        return tipoEntrega.calculaPrecoEntrega(pedido);
     }
 
 }

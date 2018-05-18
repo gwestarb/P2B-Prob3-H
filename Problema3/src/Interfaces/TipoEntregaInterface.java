@@ -5,13 +5,15 @@
  */
 package Interfaces;
 
+import ClassesProfessor.Pedido;
+
 /**
  *
  * @author Gwestarb
  */
 public interface TipoEntregaInterface {
     
-    public Double calculaPrecoEntrega(double peso);
+    public Double calculaPrecoEntrega(Pedido pedido);
     
     
 }

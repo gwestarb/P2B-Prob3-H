@@ -8,8 +8,9 @@ package problema3;
 import ClassesProfessor.ItemPedido;
 import ClassesProfessor.Pedido;
 import ClassesProfessor.Produto;
-import Entregas.PAC;
-import Entregas.Sedex;
+import Factory.EntregaFactory;
+import Strategy.PAC;
+import Strategy.Sedex;
 import Interfaces.TipoEntregaInterface;
 
 /**
@@ -25,7 +26,8 @@ public class Problema3 {
         Pedido p = new Pedido();
         Produto pr = new Produto("BANANA", 10, 20);
         p.incluirItem(pr, 100);
-        TipoEntregaInterface PAC = new PAC();
+        EntregaFactory factory = new EntregaFactory();
+        TipoEntregaInterface PAC = factory.getTipoEntrega("PAC");
         p.setTipoEntrega(PAC);
         
         System.out.println(p.getValorTotal());
@@ -36,16 +38,11 @@ public class Problema3 {
         p.incluirItem(pr1, 100);
         System.out.println(p.getValorTotal());
         
-        TipoEntregaInterface Sedex = new Sedex();
+        TipoEntregaInterface Sedex = factory.getTipoEntrega("Sedex");
         
         p.setTipoEntrega(Sedex);
         System.out.println(p.getValorTotal());
         Produto pr2 = new Produto("Abacaxi", 100, 1000);
-        
-      
-        
-        
-        
     }
     
 }
