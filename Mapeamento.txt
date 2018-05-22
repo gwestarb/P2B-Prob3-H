@@ -1,5 +1,6 @@
 Strategy:
 Context: é a classe "Context"
+--> Prof. Marcel: Para que serve esta classe? O contexto é o Pedido, que agrega um TipoEntregaInterface. Veja que vocês fizeram duas vezes a mesma coisa: o Pedido delega para Context que delega para TipoEntregaInterface 
 Strategy: é a nossa interface "TipoEntregaInterface"
 ConcreteStrategy: são nossas classes: "Motoboy","PAC","Sedex","RetiradaLocal"
 
@@ -11,3 +12,5 @@ Factory:
 Creator: é a nossa classe "EntregaFactory"
 ConcreteProduct: São nossas classes "Motoboy","PAC","Sedex","RetiradaLocal".
 Product: "TipoEntregaInterface"
+
+--> Prof. Marcel: Nota 2,8
